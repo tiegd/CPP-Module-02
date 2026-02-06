@@ -25,6 +25,16 @@ Fixed::Fixed(const Fixed &obj)
 	*this = obj;
 }
 
+Fixed::Fixed(const int)
+{
+
+}
+
+Fixed::Fixed(const float)
+{
+
+}
+
 Fixed &Fixed::operator=(const Fixed &obj)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
@@ -44,12 +54,12 @@ void Fixed::setRawBit(int const raw)
 	this->_value = raw;
 }
 
-float	toFloat()
+float	Fixed::toFloat() const
 {
 	return (0);
 }
 
-int	toInt()
+int	Fixed::toInt() const
 {
 	return (0);
 }
