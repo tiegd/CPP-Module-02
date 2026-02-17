@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/04 16:52:31 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/02/17 17:06:54 by gaducurt         ###   ########.fr       */
+/*   Created: 2026/02/04 16:52:24 by gaducurt          #+#    #+#             */
+/*   Updated: 2026/02/17 17:19:39 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include "Fixed.hpp"
 
-class	Fixed
+int main( void )
 {
-	private:
-		int					_raw;
-		static const int	_frac;
-	public:
-		Fixed();
-		Fixed(const Fixed &obj);
-		Fixed(const int);
-		Fixed(const float);
-		Fixed& operator=(const Fixed& obj);
-		int		getRawBits() const;
-		void	setRawBit(int const raw);
-		float	toFloat() const;
-		int		toInt() const;
-		~Fixed();
-};
-
-std::ostream &operator<<(std::ostream& os, const Fixed& obj);
-
+	Fixed a;
+	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	std::cout << Fixed::max( a, b ) << std::endl;
+	return 0;
+}
