@@ -18,28 +18,28 @@ const int	Fixed::_frac = 8;
 
 Fixed::Fixed(): _raw(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	// std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &obj)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	// std::cout << "Copy constructor called" << std::endl;
 	*this = obj;
 }
 
 Fixed::Fixed(const int nb):_raw(nb << this->_frac)
 {
-	std::cout << "Int constructor called" << std::endl;
+	// std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(const float nb): _raw(roundf(nb * (1 << _frac)))
 {
-	std::cout << "Float constructor called" << std::endl;
+	// std::cout << "Float constructor called" << std::endl;
 }
 
 Fixed &Fixed::operator=(const Fixed &obj)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	// std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &obj)
 		this->_raw = obj.getRawBits();
 	return (*this);
@@ -47,7 +47,7 @@ Fixed &Fixed::operator=(const Fixed &obj)
 
 int Fixed::getRawBits() const
 {
-	std::cout << "getRawBits member function called" << std::endl;
+	// std::cout << "getRawBits member function called" << std::endl;
 	return (_raw);
 }
 
@@ -68,7 +68,7 @@ int	Fixed::toInt() const
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
+	// std::cout << "Destructor called" << std::endl;
 }
 
 std::ostream &operator<<(std::ostream& os, const Fixed& obj)
@@ -77,52 +77,120 @@ std::ostream &operator<<(std::ostream& os, const Fixed& obj)
 	return (os);
 }
 
-std::ostream &operator>(std::ostream& os, const Fixed& obj)
+bool Fixed::operator>(const Fixed &obj) const
 {
-
+	return (this->_raw > obj._raw);
 }
 
-std::ostream &operator<(std::ostream& os, const Fixed& obj)
+bool Fixed::operator<(const Fixed &obj) const
 {
-
+	return (this->_raw < obj._raw);
 }
 
-std::ostream &operator>=(std::ostream& os, const Fixed& obj)
+bool Fixed::operator>=(const Fixed &obj) const
 {
-
+	return (this->_raw >= obj._raw);
 }
 
-std::ostream &operator<=(std::ostream& os, const Fixed& obj)
+bool Fixed::operator<=(const Fixed &obj) const
 {
-
+	return (this->_raw <= obj._raw);
 }
 
-std::ostream &operator==(std::ostream& os, const Fixed& obj)
+bool Fixed::operator==(const Fixed &obj) const
 {
-
+	return (this->_raw == obj._raw);
 }
 
-std::ostream &operator!=(std::ostream& os, const Fixed& obj)
+bool Fixed::operator!=(const Fixed &obj) const
 {
-
+	return (this->_raw != obj._raw);
 }
 
-std::ostream &operator+(std::ostream& os, const Fixed& obj)
+Fixed Fixed::operator+(const Fixed &obj)
 {
+	Fixed	res;
 
+	res._raw = this->_raw + obj._raw;
+	return (res);
 }
 
-std::ostream &operator-(std::ostream& os, const Fixed& obj)
+Fixed Fixed::operator-(const Fixed &obj)
 {
+	Fixed	res;
 
+	res._raw = this->_raw - obj._raw;
+	return (res);
 }
 
-std::ostream &operator*(std::ostream& os, const Fixed& obj)
+Fixed Fixed::operator*(const Fixed &obj)
 {
+	Fixed	res;
 
+	res._raw = ((long long)this->_raw * (long long)obj._raw) >> _frac;
+	return (res);
 }
 
-std::ostream &operator/(std::ostream& os, const Fixed& obj)
+Fixed Fixed::operator/(const Fixed &obj)
 {
+	Fixed	res;
 
+	res._raw = ((long long)this->_raw << _frac) / (long long)obj._raw;
+	return (res);
+}
+
+Fixed Fixed::operator++(void)
+{
+	this->_raw++;
+	return (*this);
+}
+
+Fixed Fixed::operator++(int)
+{
+	Fixed	res(*this);
+
+	this->_raw++;
+	return (res);
+}
+
+Fixed Fixed::operator--(void)
+{
+	this->_raw--;
+	return (*this);
+}
+
+Fixed Fixed::operator--(int)
+{
+	Fixed	res(*this);
+
+	this->_raw--;
+	return (res);
+}
+
+Fixed&	Fixed::min(Fixed& a, Fixed& b)
+{
+	if (a < b)
+		return (a);
+	return (b);
+}
+
+Fixed&	Fixed::max(Fixed& a, Fixed& b)
+{
+	if (a > b)
+		return (a);
+	return (b);
+}
+
+const Fixed&	Fixed::min(const Fixed& a, const Fixed& b)
+{
+	if (a < b)
+		return (a);
+	return (b);
+}
+
+const Fixed&	Fixed::max(const Fixed& a, const Fixed& b)
+{
+	if (a > b)
+		return (a);
+	return (b);
 }
