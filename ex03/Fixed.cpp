@@ -100,7 +100,7 @@ bool Fixed::operator!=(const Fixed &obj) const
 	return (this->_raw != obj._raw);
 }
 
-Fixed Fixed::operator+(const Fixed &obj)
+Fixed Fixed::operator+(const Fixed &obj) const
 {
 	Fixed	res;
 
@@ -108,7 +108,7 @@ Fixed Fixed::operator+(const Fixed &obj)
 	return (res);
 }
 
-Fixed Fixed::operator-(const Fixed &obj)
+Fixed Fixed::operator-(const Fixed &obj) const
 {
 	Fixed	res;
 
@@ -116,7 +116,7 @@ Fixed Fixed::operator-(const Fixed &obj)
 	return (res);
 }
 
-Fixed Fixed::operator*(const Fixed &obj)
+Fixed Fixed::operator*(const Fixed &obj) const
 {
 	Fixed	res;
 
@@ -124,7 +124,7 @@ Fixed Fixed::operator*(const Fixed &obj)
 	return (res);
 }
 
-Fixed Fixed::operator/(const Fixed &obj)
+Fixed Fixed::operator/(const Fixed &obj) const
 {
 	Fixed	res;
 
@@ -187,3 +187,4 @@ const Fixed&	Fixed::max(const Fixed& a, const Fixed& b)
 		return (a);
 	return (b);
 }
+

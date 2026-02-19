@@ -6,10 +6,11 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 16:52:31 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/02/18 18:30:32 by gaducurt         ###   ########.fr       */
+/*   Updated: 2026/02/19 16:25:44 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #include <iostream>
 
 class	Fixed
@@ -33,10 +34,10 @@ class	Fixed
 		bool				operator<=(const Fixed& obj) const;
 		bool				operator==(const Fixed& obj) const;
 		bool				operator!=(const Fixed& obj) const;
-		Fixed				operator+(const Fixed& obj);
-		Fixed				operator-(const Fixed& obj);
-		Fixed				operator*(const Fixed& obj);
-		Fixed				operator/(const Fixed& obj);
+		Fixed				operator+(const Fixed& obj) const;
+		Fixed				operator-(const Fixed& obj) const;
+		Fixed				operator*(const Fixed& obj) const;
+		Fixed				operator/(const Fixed& obj) const;
 		Fixed				operator++(void);
 		Fixed				operator++(int);
 		Fixed				operator--(void);

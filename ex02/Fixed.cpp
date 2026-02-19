@@ -18,28 +18,23 @@ const int	Fixed::_frac = 8;
 
 Fixed::Fixed(): _raw(0)
 {
-	// std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &obj)
 {
-	// std::cout << "Copy constructor called" << std::endl;
 	*this = obj;
 }
 
 Fixed::Fixed(const int nb):_raw(nb << this->_frac)
 {
-	// std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(const float nb): _raw(roundf(nb * (1 << _frac)))
 {
-	// std::cout << "Float constructor called" << std::endl;
 }
 
 Fixed &Fixed::operator=(const Fixed &obj)
 {
-	// std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &obj)
 		this->_raw = obj.getRawBits();
 	return (*this);
@@ -47,7 +42,6 @@ Fixed &Fixed::operator=(const Fixed &obj)
 
 int Fixed::getRawBits() const
 {
-	// std::cout << "getRawBits member function called" << std::endl;
 	return (_raw);
 }
 
@@ -68,7 +62,6 @@ int	Fixed::toInt() const
 
 Fixed::~Fixed()
 {
-	// std::cout << "Destructor called" << std::endl;
 }
 
 std::ostream &operator<<(std::ostream& os, const Fixed& obj)
@@ -107,7 +100,7 @@ bool Fixed::operator!=(const Fixed &obj) const
 	return (this->_raw != obj._raw);
 }
 
-Fixed Fixed::operator+(const Fixed &obj)
+Fixed Fixed::operator+(const Fixed &obj) const
 {
 	Fixed	res;
 
@@ -115,7 +108,7 @@ Fixed Fixed::operator+(const Fixed &obj)
 	return (res);
 }
 
-Fixed Fixed::operator-(const Fixed &obj)
+Fixed Fixed::operator-(const Fixed &obj) const
 {
 	Fixed	res;
 
@@ -123,7 +116,7 @@ Fixed Fixed::operator-(const Fixed &obj)
 	return (res);
 }
 
-Fixed Fixed::operator*(const Fixed &obj)
+Fixed Fixed::operator*(const Fixed &obj) const
 {
 	Fixed	res;
 
@@ -131,7 +124,7 @@ Fixed Fixed::operator*(const Fixed &obj)
 	return (res);
 }
 
-Fixed Fixed::operator/(const Fixed &obj)
+Fixed Fixed::operator/(const Fixed &obj) const
 {
 	Fixed	res;
 
