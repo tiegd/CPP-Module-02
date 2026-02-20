@@ -6,11 +6,13 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 16:52:31 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/02/19 16:25:44 by gaducurt         ###   ########.fr       */
+/*   Updated: 2026/02/20 14:03:24 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef __FIXED__
+#define __FIXED__
+
 #include <iostream>
 
 class	Fixed
@@ -50,3 +52,5 @@ class	Fixed
 };
 
 std::ostream &operator<<(std::ostream& os, const Fixed& obj);
+
+#endif
