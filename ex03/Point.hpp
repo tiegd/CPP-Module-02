@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 11:03:40 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/02/20 14:13:14 by gaducurt         ###   ########.fr       */
+/*   Updated: 2026/02/23 09:16:47 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ class   Point
         const Fixed   _y;
     public:
         Point();
-        Point(const float x, const float y);
         Point(const Point &obj);
         Point&  operator=(const Point& obj);
+        ~Point();
+        Point(const float x, const float y);
 		Point	operator-(const Point& obj) const;
         const Fixed&	getX() const;
         const Fixed&	getY() const;
-        ~Point();
 };
 
 bool	bsp( Point const a, Point const b, Point const c, Point const point);

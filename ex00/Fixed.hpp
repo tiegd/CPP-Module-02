@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 16:52:31 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/02/20 14:05:02 by gaducurt         ###   ########.fr       */
+/*   Updated: 2026/02/23 09:17:37 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ class	Fixed
 		Fixed();
 		Fixed(const Fixed &obj);
 		Fixed& operator=(const Fixed& obj);
+		~Fixed();
 		int		getRawBits(void) const;
 		void	setRawBit(int const raw);
-		~Fixed();
 };
 
 #endif
